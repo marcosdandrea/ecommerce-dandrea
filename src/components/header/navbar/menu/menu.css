@@ -1,0 +1,18 @@
+.menu{
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.menuItem{
+    display: flex;
+    position: relative;
+    color: #1e1e1e;
+    cursor: pointer;
+    transition: color 1s ease;
+}
+
+.menuItem:hover{
+    color:#eeeeee
+}
