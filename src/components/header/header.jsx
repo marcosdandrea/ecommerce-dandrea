@@ -1,7 +1,7 @@
 import Navbar from "./navbar/navbar.jsx"
 
-export default function Header(){
+export default function Header({ itemsAmount }){
     return (
-        <Navbar />
+        <Navbar itemsAmount={itemsAmount}/>
     )
 }

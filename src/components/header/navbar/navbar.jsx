@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import BrandLogo from './brand/brand'
 import Menu from './menu/menu'
 
-export default function Navbar (){
+export default function Navbar ({itemsAmount}){
     return(
 
     <Box 
@@ -22,8 +22,8 @@ export default function Navbar (){
       }}>   
 
       <BrandLogo/>
-      <Menu itemsAmount={8}/>
-      <CartButton itemsAmount={8}/>
+      <Menu/>
+      <CartButton itemsAmount={itemsAmount}/>
 
     </Box> 
 

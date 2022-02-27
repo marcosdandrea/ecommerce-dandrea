@@ -1,9 +1,11 @@
 import ShoppingList from './ShoppingList';
 import Box from '@mui/material/Box';
+import ItemCount from './ItemCount';
 
 const shopItems = ["item 1", "item 2", "item 3", "item 4", "item 5"];
 
-export default function Body(){
+export default function Body({ changeAmount }){
+
     return (
     <Box
         sx={{
@@ -15,6 +17,7 @@ export default function Body(){
         }}
     >
         <ShoppingList shopItems={shopItems}/>
+        <ItemCount stock={5} changeAmount={changeAmount}/>
     </Box>
     )   
 }
