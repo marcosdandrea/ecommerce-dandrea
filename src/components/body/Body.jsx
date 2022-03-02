@@ -1,6 +1,6 @@
-import ShoppingList from './ShoppingList';
 import Box from '@mui/material/Box';
 import ItemCount from './ItemCount';
+import ItemListContainer from './ItemListContainer';
 
 const shopItems = ["item 1", "item 2", "item 3", "item 4", "item 5"];
 
@@ -16,8 +16,8 @@ export default function Body({ changeAmount }){
             height: '100vh'
         }}
     >
-        <ShoppingList shopItems={shopItems}/>
-        <ItemCount stock={5} changeAmount={changeAmount}/>
+        <ItemCount stock={5} changeAmount={changeAmount}/> 
+        <ItemListContainer/>
     </Box>
     )   
 }
