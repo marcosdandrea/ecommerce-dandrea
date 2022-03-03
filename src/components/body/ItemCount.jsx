@@ -5,55 +5,71 @@ import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
-
+import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 
 export default function ItemCount({ stock, changeAmount }) {
-    const stockAmount = stock || 0;
+    const _stockAmount = stock || 0;
 
-    let [itemsAmount, setItemsAmount] = useState(0);
+    let [stockAmount, setStockAmount] = useState(_stockAmount);
+    let [selectedItems, setSelectedItems] = useState(0);
 
-    function addItemsToCart() {
-        if (itemsAmount == stockAmount) return
-        setItemsAmount(itemsAmount + 1);
-        changeAmount(itemsAmount+1)
+    function addItems() {
+        setSelectedItems(selectedItems+=1)
+        console.log ("Agregando")
     }
 
-    function substractItemsToCart() {
-        if (itemsAmount == 0) return
-        setItemsAmount(itemsAmount - 1);
-        changeAmount(itemsAmount-1)
+    function substractItems() {
+        setSelectedItems(selectedItems-=1)
+        console.log ("Agregando")
     }
+
+    function addToCart() {
+        changeAmount(selectedItems)
+        setStockAmount(stockAmount-selectedItems)
+        setSelectedItems(0)        
+    }
+
+
+    console.log ("selectedItems", selectedItems)
+    console.log ("stockAmount", stockAmount)
 
     return (
         <Card sx={{ minWidth: 275, maxWidth: "50%" }}>
             <CardContent>
                 <Stack direction="column" spacing={2}>
                     <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                        Add or substract elements to your cart.
+                        Total items in Stock: {stockAmount}
                     </Typography>
                     <Stack direction="row" spacing={2}>
-                        <Button
-                            variant="contained"
-                            color="success"
-                            disabled={itemsAmount==stockAmount}
-                            startIcon={<AddShoppingCartIcon />}
-                            onClick={addItemsToCart}>
-                            add
-                        </Button>
+                        <ButtonGroup disableElevation variant="contained">
+                            <Button 
+                                disabled={stockAmount<=selectedItems}
+                                onClick={()=>{addItems()}}
+                                >Add Item
+                                </Button>
+                            <Button 
+                                disabled={selectedItems === 0}
+                                onClick={()=>{substractItems()}}
+                                >Remove Item
+                            </Button>
+                        </ButtonGroup>
 
-                        <Button
-                            variant="contained"
-                            color="error"
-                            startIcon={<RemoveCircleOutlineIcon />}
-                            disabled={itemsAmount==0}
-                            onClick={substractItemsToCart}>
-                            substract
-                        </Button>
                     </Stack>
                     <Typography variant="overline" component="div">
-                        total items: {itemsAmount}
+                        total items selected: {selectedItems}
                     </Typography>
+
+                    <Button
+                        variant="contained"
+                        color="success"
+                        disabled={selectedItems === 0}
+                        startIcon={<AddShoppingCartIcon />}
+                        onClick={()=>{addToCart()}}>
+                        add to cart
+                    </Button>
+
+
                 </Stack>
             </CardContent>
         </Card>
