@@ -4,7 +4,18 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Box from '@mui/material/Box';
 import StyledBadge from '../../../assets/badge'
 
-export default function CartButton({ itemsAmount }) {
+export default function CartButton(props) {
+
+
+  const countItemsInCart = () => {
+    let acumulator = 0;
+      props.itemsInCart.forEach(item => {
+        acumulator += item.itemAmount;
+      })
+      return(acumulator)
+  }
+
+
   return (
     <Box
       sx={{
@@ -19,7 +30,7 @@ export default function CartButton({ itemsAmount }) {
       }}
     >
       <IconButton aria-label="cart">
-        <StyledBadge badgeContent={itemsAmount} color="success">
+        <StyledBadge badgeContent={countItemsInCart()} color="success">
           <ShoppingCartIcon />
         </StyledBadge>
       </IconButton>

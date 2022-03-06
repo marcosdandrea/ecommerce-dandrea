@@ -1,10 +1,14 @@
 import Box from '@mui/material/Box';
-import ItemCount from './ItemCount';
-import ItemListContainer from './ItemListContainer';
+
+import ItemList from '../Item/ItemList';
 
 const shopItems = ["item 1", "item 2", "item 3", "item 4", "item 5"];
 
-export default function Body({ changeAmount }){
+export default function HomeSection(props){
+
+    const onAdd = (selectedAmount) => {
+        props.onAdd(selectedAmount)
+    }
 
     return (
     <Box
@@ -16,8 +20,8 @@ export default function Body({ changeAmount }){
             height: '100vh'
         }}
     >
-        <ItemCount stock={5} changeAmount={changeAmount}/> 
-        <ItemListContainer/>
+        
+        <ItemList onAdd={onAdd}/>
     </Box>
     )   
 }

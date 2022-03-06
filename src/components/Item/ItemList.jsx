@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import Item from './Item'
 import { getFetch } from '../../data/Database'
-import itemListContainer from './itemListContainer.css'
+import itemList from './itemList.css'
 
-export default function ItemListContainer() {
+export default function ItemListContainer(props) {
 
     const [prods, setProds] = useState([])
 
@@ -12,7 +12,9 @@ export default function ItemListContainer() {
             .then((res) => { setProds(res) })
     }, [])
 
-    console.log(prods)
+    const onAdd = (selectedAmount) =>{
+        props.onAdd(selectedAmount)
+    }
 
     {
         if (prods.length == 0) {
@@ -24,7 +26,15 @@ export default function ItemListContainer() {
                 <div className="itemListContainer">
                     {prods.map((prod) => {
                         return (
-                            <Item key={prod.id} title={prod.title} paragraph={prod.paragraph} image={prod.image} altImg={prod.altImg} />
+                            <Item 
+                            key={prod.id} 
+                            title={prod.title} 
+                            paragraph={prod.paragraph} 
+                            image={prod.image} 
+                            altImg={prod.altImg}
+                            stock={prod.stock}
+                            onAdd={onAdd}
+                             />
                         )
                     })}
                 </div>

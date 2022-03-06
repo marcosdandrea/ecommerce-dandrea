@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import BrandLogo from './brand/brand'
 import Menu from './menu/menu'
 
-export default function Navbar ({itemsAmount}){
+export default function Navbar (props){
     return(
 
     <Box 
@@ -23,7 +23,8 @@ export default function Navbar ({itemsAmount}){
 
       <BrandLogo/>
       <Menu/>
-      <CartButton itemsAmount={itemsAmount}/>
+      <CartButton 
+      itemsInCart={props.itemsInCart}/>
 
     </Box> 
 
