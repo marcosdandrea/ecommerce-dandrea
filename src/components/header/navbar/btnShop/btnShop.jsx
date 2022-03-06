@@ -6,6 +6,7 @@ import StyledBadge from '../../../assets/badge'
 
 export default function CartButton(props) {
 
+  console.log (props.itemsInCart)
 
   const countItemsInCart = () => {
     let acumulator = 0;
