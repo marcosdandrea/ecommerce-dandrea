@@ -2,6 +2,7 @@
 const database = [
     {
         id: 1,
+        price: 10380.80,
         title: "Bsn - Syntha-6", 
         paragraph: "Syntha 6 Isolate BSN es para reestructurar las fibras que se dañan durante el entrenamiento. Es una mezcla de proteína de rápida y lenta absorción. Mezcla 50/50 de proteína de suero y aislado de proteínas lácteas (una fuente de caseína de alta calidad de lenta digestión), con la matriz de proteínas única Isolast™ ofrece una mezcla de proteínas de rápida y lenta liberación que promueve un ritmo moderado de liberación de aminoácidos para alimentar los músculos activos",
         stock:10,
@@ -10,6 +11,7 @@ const database = [
     },
     {
         id: 2,
+        price: 15080.50,
         title: "Bsn - Syntha-6 10lbs", 
         paragraph: "Syntha 6 10lbs Isolate BSN es para reestructurar las fibras que se dañan durante el entrenamiento. Es una mezcla de proteína de rápida y lenta absorción. Mezcla 50/50 de proteína de suero y aislado de proteínas lácteas (una fuente de caseína de alta calidad de lenta digestión), con la matriz de proteínas única Isolast™ ofrece una mezcla de proteínas de rápida y lenta liberación que promueve un ritmo moderado de liberación de aminoácidos para alimentar los músculos activos",
         stock:10,
@@ -18,6 +20,7 @@ const database = [
     },
     {
         id: 3,
+        price: 780.50,
         title: "Bsn - Amino X", 
         paragraph: "La primera fórmula del mundo de aminoácidos efervescentes.10g de aminoácidos micronizados anti-catabólicos por servicio.0g de azúcar.500 IU de vitamina D anabólica por servicio.Sin cafeína – puede usarse en cualquier momento, día y noche",
         stock:6,

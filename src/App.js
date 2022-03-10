@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react'
 import Header from './components/header/header.jsx'
 import HomeSection from './components/HomeSection/HomeSection'
+import { Stack } from '@mui/material'
 
 function App() {
 
@@ -23,12 +24,15 @@ function App() {
   }
 
   return (
-    <div>
+    <Stack
+    direction="column"
+    spacing={2}
+    >
       <Header 
         itemsInCart={itemsInCart}/>
       <HomeSection 
         onAdd={onAdd}/>
-    </div>
+    </Stack>
   );
 }
 
