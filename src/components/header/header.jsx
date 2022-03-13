@@ -1,4 +1,4 @@
-import Navbar from "./navbar/navbar.jsx"
+import Navbar from "../Navbar/Navbar.jsx"
 
 export default function Header(props){
 

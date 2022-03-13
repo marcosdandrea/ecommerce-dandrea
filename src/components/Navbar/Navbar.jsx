@@ -1,7 +1,7 @@
-import CartButton from "./btnShop/btnShop.jsx";
+import CartButton from "../CartButton/CartButton";
 import Box from '@mui/material/Box';
-import BrandLogo from './brand/brand'
-import Menu from './menu/menu'
+import BrandLogo from '../brand/brand'
+import Menu from '../Menu/Menu'
 
 export default function Navbar (props){
     return(
@@ -10,7 +10,7 @@ export default function Navbar (props){
       sx={{
         width: "100vw",
         height: "3em",
-        backgroundColor: 'primary.dark',
+        backgroundColor: '#202020',
         padding: "0.5em",
         display: "flex", 
         userSelect: "none", 

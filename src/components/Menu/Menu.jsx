@@ -3,15 +3,15 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import StyledBadge from '../../../assets/badge'
+import StyledBadge from '../CartButton/badge'
+import {NavLink} from 'react-router-dom'
 
 
 const menuItems =
     [
-        { itemName: "Home", Action: "home" },
-        { itemName: "Products", Action: "products" },
-        { itemName: "Sale", Action: "sale" },
-        { itemName: "Profile", Action: "profile" }
+        { itemName: "Home", Action: "/" },
+        { itemName: "Products", Action: "shop" },
+        { itemName: "Cart", Action: "cart" },
     ]
 
 const buildMenu = (itemName) => {
@@ -19,13 +19,14 @@ const buildMenu = (itemName) => {
         itemName.map((item) => {
             return (
 
-                <div className="menuItem" key={item.Action}>
-                    <Typography variant="button" display="block" gutterBottom>
+                <NavLink to={item.Action} key={item.itemName} className="menuItem">
+                <Typography variant="button" display="block" gutterBottom>
                         <strong>
                             {item.itemName}
                         </strong>
-                    </Typography>
-                </div>
+                    </Typography>    
+                    
+                </NavLink>
 
             )
         })

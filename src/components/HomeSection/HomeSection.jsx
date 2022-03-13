@@ -1,13 +1,10 @@
 import { Box, Stack } from '@mui/material';
-import ItemListContainer from '../ItemListContainer/ItemListContainer';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 const shopItems = ["item 1", "item 2", "item 3", "item 4", "item 5"];
 
 export default function HomeSection(props) {
 
-    const onAdd = (selectedAmount) => {
-        props.onAdd(selectedAmount)
-    }
+
 
     return (
         <Box
@@ -20,12 +17,8 @@ export default function HomeSection(props) {
             }}
         >
             <Stack
-                direction="column"
-            >
-                <ItemListContainer onAdd={onAdd} />
-                <ItemDetailContainer
-                    itemID={1}
-                />
+                direction="column">                
+                <div>Home section</div>
             </Stack>
         </Box>
     )

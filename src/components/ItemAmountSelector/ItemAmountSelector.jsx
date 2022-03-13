@@ -9,23 +9,29 @@ export default function ItemCount({ initialValue=0, stock=0, onAdd }) {
     let [selectedAmount, setSelectedAmount] = useState(initialValue);
     let [stockAmount, setStockAmount] = useState(stock);
 
-    function addItems() {
+    function addItems(evnt) {
+        evnt.preventDefault();
         setSelectedAmount(selectedAmount+1)
     }
 
-    function substractItems() {
+    function substractItems(evnt) {
+        evnt.preventDefault();
         setSelectedAmount(selectedAmount-1)
     }
 
-    function addToCart() {
+    function addToCart(evnt) {
+        evnt.preventDefault();
         onAdd(selectedAmount)
         setStockAmount(stockAmount-selectedAmount)
         setSelectedAmount(0)
     }
 
+    function preventDefault(evnt){
+        evnt.preventDefault();
+    }
 
     return (
-        <div>
+        <div onClick={preventDefault}>
             <Stack 
             direction="row" 
             spacing={2}
@@ -41,7 +47,7 @@ export default function ItemCount({ initialValue=0, stock=0, onAdd }) {
                         variant="contained"
                         disableElevation
                         className="controlButtonMinus"
-                        onClick={()=>{substractItems()}}
+                        onClick={substractItems}
                         disabled={selectedAmount===0}
                     >-</Button>
                     <Typography
@@ -51,7 +57,7 @@ export default function ItemCount({ initialValue=0, stock=0, onAdd }) {
                         variant="contained"
                         disableElevation
                         className="controlButtonPlus"
-                        onClick={()=>{addItems()}}
+                        onClick={addItems}
                         disabled={selectedAmount===stockAmount}
                     >+</Button>
                 </Stack>
@@ -59,7 +65,7 @@ export default function ItemCount({ initialValue=0, stock=0, onAdd }) {
                 <Button
                     variant="contained"
                     className="addButton"
-                    onClick={()=>{addToCart()}}
+                    onClick={addToCart}
                     disabled={selectedAmount===0}
                 >Agregar al Carrito</Button>
             </Stack>

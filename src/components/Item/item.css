@@ -17,3 +17,17 @@
 .stockAvailable{
     display: none;
 }
+
+.category{
+    font-size: 0.6rem !important;
+    font-weight: bold !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.itemPrice{
+    font-size: 0.8rem !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+}
