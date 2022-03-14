@@ -7,6 +7,7 @@ import HomeSection from './components/HomeSection/HomeSection'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import CartListContainer from './components/CartListContainer/CartListContainer';
+import ItemCategoriesContainer from './components/ItemCategoriesContainer/ItemCategoriesContainer';
 
 function App() {
 
@@ -58,7 +59,8 @@ function App() {
           <Routes>
             <Route exact path="/" element={<HomeSection />} />
             <Route exact path="/shop" element={<ItemListContainer onAdd={onAdd} />} />
-            <Route exact path="/shop/:productId" element={<ItemDetailContainer itemID={1} />} />
+            <Route exact path="/shop/:productId" element={<ItemDetailContainer onAdd={onAdd} />} />
+            <Route exact path="/shop/categories/:categoryID" element={<ItemCategoriesContainer onAdd={onAdd}/>} />
             <Route exact path="/cart" element={<CartListContainer itemsInCart={itemsInCart} onDelete={onDelete} />} />
           </Routes>
 

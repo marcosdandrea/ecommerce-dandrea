@@ -7,7 +7,7 @@ import { Typography, Button, Stack } from '@mui/material'
 import CachedIcon from '@mui/icons-material/Cached';
 import './itemDetailContainer.css'
 
-export default function ItemDetailContainer() {
+export default function ItemDetailContainer( { onAdd }) {
 
   const { productId } = useParams();
   const [CurrentItem, setCurrentItem] = useState([]);
@@ -31,6 +31,7 @@ export default function ItemDetailContainer() {
       <Stack className="itemDetailContainer">
         <ItemDetail
           itemData={CurrentItem}
+          onAdd={onAdd}
         />
         <Link to={"/shop"} className="backBtn">
           <Button 

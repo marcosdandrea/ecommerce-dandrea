@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { Card, Button, Menu, MenuItem } from '@mui/material';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import './itemListFilterCategory.css'
 
 export default function ItemListFilterCategory({ prods, onFilterCategory }) {
 
-    const [categories, setCategories] = useState(["All products"])
-    const [currentCategory, setCurrentCategory] = useState("All products")
+    const [categories, setCategories] = useState([])
+    const [currentCategory, setCurrentCategory] = useState("")
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     useEffect(() => {
@@ -23,12 +24,13 @@ export default function ItemListFilterCategory({ prods, onFilterCategory }) {
       setAnchorEl(event.currentTarget);
       
     };
+
     const handleClose = (event) => {
-      setAnchorEl(null);
-      if (event.currentTarget.innerText === "") return
-      setCurrentCategory(event.currentTarget.innerText)      
-      onFilterCategory(event.currentTarget.innerText)
-    };
+        setAnchorEl(null);
+        if (event.currentTarget.innerText === "") return
+        //setCurrentCategory(event.currentTarget.innerText)      
+        //onFilterCategory(event.currentTarget.innerText)
+      };
 
     return (
         <Card className="itemListArranger">
@@ -53,7 +55,9 @@ export default function ItemListFilterCategory({ prods, onFilterCategory }) {
                 }}
             >
                 {categories.map(category => {
-                     return(<MenuItem key={category} onClick={handleClose} className="menuButtons">{category}</MenuItem>)
+                     return(<Link key={category} to={"categories/"+category}>
+                        <MenuItem  onClick={handleClose} className="menuButtons">{category}</MenuItem>
+                     </Link>)
                 })}
 
             </Menu>

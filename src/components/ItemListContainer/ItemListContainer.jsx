@@ -103,9 +103,7 @@ export default function ItemListContainer(props) {
                     <ItemList
                         onAdd={onAdd}
                         prods={prods}
-                    >
-
-                    </ItemList>
+                    />
                 </div>
             )
         }

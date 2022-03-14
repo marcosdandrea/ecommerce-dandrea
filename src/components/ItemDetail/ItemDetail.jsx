@@ -1,11 +1,25 @@
 import React from 'react'
 import { Typography, Stack, CardMedia, Paper } from '@mui/material';
+import ItemAmountSelector from "../ItemAmountSelector/ItemAmountSelector"
 import './itemDetail.css'
 
 export default function ItemDetail(props) {
 
     const currentItem = props.itemData;
 
+    const onAdd = (selectedAmount) => {
+        props.onAdd(
+            {
+                "itemID": currentItem.id,
+                "itemName": currentItem.title,
+                "itemAmount": selectedAmount,
+                "itemPrice": currentItem.price,
+                "itemImg": currentItem.image,
+                "itemCat": currentItem.category
+            }
+        )
+    }
+      
     return (
 
         <Stack
@@ -54,6 +68,11 @@ export default function ItemDetail(props) {
                     >{currentItem.paragraph}</Typography>
                 </Stack>
             </Stack>
+            <ItemAmountSelector 
+                    initialValue={0}
+                    stock={currentItem.stock}
+                    onAdd={onAdd}
+            />
         </Stack>
 
     )
