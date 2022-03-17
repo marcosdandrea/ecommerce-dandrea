@@ -64,11 +64,13 @@ export default function Item(props) {
         </CardContent>
 
       </CardActionArea>
+      {/*       
       <ItemAmountSelector
         initialValue={0}
         stock={props.stock}
         onAdd={onAdd}
-      />
+      /> 
+      */}
     </Card>
   )
 }

@@ -1,13 +1,15 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import { Typography, Stack, CardMedia, Paper } from '@mui/material';
 import ItemAmountSelector from "../ItemAmountSelector/ItemAmountSelector"
 import './itemDetail.css'
 
 export default function ItemDetail(props) {
 
+    const [ buyMode, setBuyMode ] = useState(false)
     const currentItem = props.itemData;
 
     const onAdd = (selectedAmount) => {
+        setBuyMode(true)
         props.onAdd(
             {
                 "itemID": currentItem.id,
@@ -18,7 +20,9 @@ export default function ItemDetail(props) {
                 "itemCat": currentItem.category
             }
         )
+        
     }
+
       
     return (
 
@@ -69,6 +73,7 @@ export default function ItemDetail(props) {
                 </Stack>
             </Stack>
             <ItemAmountSelector 
+                    buyMode={buyMode}
                     initialValue={0}
                     stock={currentItem.stock}
                     onAdd={onAdd}
